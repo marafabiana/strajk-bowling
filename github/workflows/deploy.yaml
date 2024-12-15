@@ -1,4 +1,4 @@
-name: CI/CD 
+name: CI/CD
 
 on:
   push:
@@ -27,4 +27,55 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
-      
+  check-coverage:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check test coverage
+        run: |
+          if [ ! -f ./coverage/coverage-summary.json ]; then
+          echo "Coverage report not found!"
+          exit 1
+          fi
+
+          echo "Coverage report found"
+
+          COVERAGE=$(cat ./coverage/coverage-summary.json | jq .total.lines.pct)
+          echo "Test coverage is ${COVERAGE}%"
+
+          if (( $(echo "$COVERAGE < 90" | bc -l) )); then
+          echo "Test coverage is below 85%, cannot deploy."
+          exit 1
+          fi
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: check-coverage
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install modules
+        run: npm install
+
+      - name: Build dist
+        run: npm run build
+
+      - name: Setup pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload dist folder
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: "./dist"
+
+      - name: Deploy to Github Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
