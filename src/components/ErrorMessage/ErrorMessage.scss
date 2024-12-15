@@ -1,0 +1,32 @@
+@import "../../scss/variables";
+
+.error-message::before {
+  content: "";
+  border: 0px solid $primary-red;
+  border-width: 10px;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  position: absolute;
+  top: -1.3rem;
+  left: 50%;
+}
+
+.error-message {
+  border: 1px solid $primary-red;
+  background-color: $primary-red;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 0 0.5rem;
+
+  &__text {
+    font-family: "Work Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0.03em;
+    color: #fff;
+  }
+}

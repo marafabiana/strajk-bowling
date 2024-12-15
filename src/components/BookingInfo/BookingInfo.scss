@@ -1,0 +1,52 @@
+@import '../../scss/variables';
+
+.booking-info {
+    
+    &__heading::before, &__heading::after {
+        content: "";
+        border: 1px solid $primary-blue;
+        display: inline-block;
+        width: 5.8rem;
+        margin-bottom: 6px;
+    }
+
+    &__heading::before {
+        margin-right: 10px;
+    }
+
+    &__heading::after {
+        margin-left: 10px;
+    }
+
+    &__heading {
+        color: #441D81;
+        text-transform: uppercase;
+    }
+    
+    &__details {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__date::-webkit-calendar-picker-indicator {
+        opacity: 0;
+        width: 100%;
+        cursor: pointer;
+        position: absolute;
+      }
+
+    &__when {
+        margin-bottom: 1rem;
+        display: flex;
+        gap: 2.5rem;
+
+
+        input:first-child {
+            margin-right: 0.5rem;
+        }
+    }
+
+    &__who, &__lanes {
+        margin-bottom: 1rem;
+    }
+}

@@ -1,0 +1,36 @@
+@import '../../scss/variables';
+
+.input {
+    position: relative;
+
+    &__label {
+        font-family: 'Work Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        background-image: linear-gradient(to bottom, $background-color, $background-color);
+        padding: 0 2px;
+        color: $primary-blue;
+        position: absolute;
+        top: -6px;
+        left: 1.5rem;
+    }
+    
+    &__field {
+        border: 1px solid $primary-blue;
+        padding: 12px;
+        font-family: 'Work Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 28px;
+        letter-spacing: 0.03em;
+        border-radius: $border-radius;
+        background-color: transparent;
+        width: 100%;
+    }
+}
+

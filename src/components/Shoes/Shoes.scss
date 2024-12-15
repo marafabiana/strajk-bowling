@@ -1,0 +1,48 @@
+@import '../../scss/variables';
+
+.shoes {
+    display: flex;
+    flex-direction: column;
+
+    &__heading::before, &__heading::after {
+        content: "";
+        border: 1px solid $primary-blue;
+        display: inline-block;
+        width: 10.7rem;
+        margin-bottom: 6px;
+    }
+
+    &__heading::before {
+        margin-right: 10px;
+    }
+
+    &__heading::after {
+        margin-left: 10px;
+    }
+
+    &__heading {
+        color: $primary-blue;
+        text-transform: uppercase;
+    }
+
+    &__form {
+        display: flex;
+        margin-bottom: 1rem;
+    }
+
+    &__button {
+        align-self: center;
+        background-color: $primary-red;
+        border: none;
+        border-radius: 999rem;
+        font-size: 28px;
+        font-weight: bold;
+        color: #fff;
+        padding: 0.5rem 1rem;
+    }
+
+    &__button--small {
+        font-size: 20px;
+        margin-left: auto;
+    }
+}

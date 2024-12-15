@@ -1,0 +1,47 @@
+@import '../scss/variables';
+
+.confirmation {
+    display: flex;
+    flex-direction: column;
+
+    &__details {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__input {
+        margin-bottom: 1rem;
+    }
+
+    &__price {
+        border: 1px solid $primary-red;
+        border-radius: $border-radius;
+        padding: 0 0.75rem;
+        display: flex;
+        color: #EC315A;
+        margin-top: 4rem;
+
+        p {
+            font-family: 'Work Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 28px;
+            letter-spacing: 0.03em;
+        }
+
+        p:first-child {
+            font-weight: bold;
+            margin-right: auto;
+        }
+    }
+
+    &__button {
+        margin: 1rem 0 2rem 0;
+    }
+
+    &__no-booking {
+        font-family: 'Bebas Neue';
+        align-self: center;
+    }
+}
